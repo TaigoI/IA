@@ -250,7 +250,7 @@ def menu():
     print("    [3] Quit")
 
     a: str = input("\nAção: ")
-    while ((not a.isdigit()) or (a.isdigit() and int(a) not in (range(3)))):
+    while ((not a.isdigit()) or (a.isdigit() and int(a) not in (range(4)))):
         a = input("\nAção inválida, escolha entre \"0\" a \"3\": ")
     return int(a)
 
@@ -343,7 +343,7 @@ if __name__ == '__main__':
         if (prompt != ""):
             args.input = prompt
         else:
-            args.input = "questao1.data"
+            args.input = "questao2.data"
             print(f'No path provided, using default ./{args.input}\n')
 
     main(input=args.input)

@@ -1,6 +1,18 @@
-Fadiga & DorDeCabeça & DoresNoCorpo & OcasionaisDoresGarganta & OcasionalTosse -> Covid19
-DorDeCabeça & GargantaInflamada & Tosse -> Gripe
-Cansaço & DorDeCabeça -> MononucleoseInfecciosa
-Cansaço & GargantaInflamada -> Amigdalite
-Cansaço -> Estresse
-Fadiga & DorDeCabeça & PulsaçãoElevada & BaixoNívelDeOxigênio & PerdaDeOlfato & PerdaDePaladar -> Covid19
+Pelo -> Mamifero
+Leite -> Mamifero
+Penas -> Ave
+Voa & BotaOvos -> Ave
+Mamifero & ComeCarne -> Carnívoro
+Mamifero & DentesPontudos & Garras & OlhosFrontais -> Carnívoro
+Mamifero & Casco -> Ungulado
+Mamifero & Rumina & DedosPares -> Ungulado
+Carnívoro & CorAmareloTostado & ManchasEscuras -> Leopardo
+Ungulado & PernasLongas & PescoçoComprido & CorAmareloTostado & ManchasEscuras -> Girafa
+Ungulado & CorBranca & ListrasPretas -> Zebra
+Ave & PernasLongas & PescoçoComprido & CorPretoEBranco -> Avestruz
+Ave & NaoVoa & Nada & CorPretoEBranco -> Pinguim
+Ave & BomVoador -> Albatroz 
+
+Mamifero & Nada & TamanhoEnorme -> Baleia
+Mamifero & Nada & TamanhoMedio -> Golfinho
+!Ave & !Mamifero & Nada -> Peixe 
