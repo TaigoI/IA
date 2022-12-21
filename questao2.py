@@ -195,30 +195,6 @@ def bwdInference(rules, knowledge, nodes, target, visited, unknown):
 # ------------------------------------ MAIN -----------------------------------------
 
 
-def lerSimOuNao() -> bool:
-    print("\n")
-    print("    [0] Não")
-    print("    [1] Sim")
-
-    a: str = input("\nAção: ")
-    while ((not a.isdigit()) or (a.isdigit() and int(a) not in (0, 1))):
-        a = input("\nAção inválida, escolha entre \"0\" e \"1\"")
-    print("\n")
-    return int(a) == 1
-
-
-def lerVerdadeiroOuFalso() -> bool:
-    print("\n")
-    print("    [0] Falso (False)")
-    print("    [1] Verdadeiro (True)")
-
-    a: str = input("\nAção: ")
-    while ((not a.isdigit()) or (a.isdigit() and int(a) not in (0, 1))):
-        a = input("\nAção inválida, escolha entre \"0\" e \"1\"")
-    print("\n")
-    return int(a) == 1
-
-
 def addMenu():
     print("\n\n---------------------------- Add Knowledge|Rule -----------------------------")
     print("Knowledge ex.: \"Cancer\" ou \"!Cancer\"")
@@ -245,13 +221,14 @@ def inferMenu(nodes):
 def menu():
     print("\n\n--------------------------------- Engenho ---------------------------------")
     print("    [0] Infer")
-    print("    [1] Add Knowledge|Rule")
+    print("    [1] Add or Update Knowledge|Rule")
     print("    [2] Show Memory")
-    print("    [3] Quit")
+    print("    [3] Clear Knowledge")
+    print("    [4] Quit")
 
     a: str = input("\nAção: ")
-    while ((not a.isdigit()) or (a.isdigit() and int(a) not in (range(4)))):
-        a = input("\nAção inválida, escolha entre \"0\" a \"3\": ")
+    while ((not a.isdigit()) or (a.isdigit() and int(a) not in (range(5)))):
+        a = input("\nAção inválida, escolha entre \"0\" a \"4\": ")
     return int(a)
 
 
@@ -275,7 +252,7 @@ def main(input):
         showMemory(rules, knowledge, nodes)
 
         m = menu()
-        while (m != 3):
+        while (m != 4):
             if (m == 0):
                 node = inferMenu(nodes)
                 inf = fwdInference(rules, knowledge, nodes, node)
@@ -313,6 +290,9 @@ def main(input):
 
             elif (m == 2):
                 showMemory(rules, knowledge, nodes)
+
+            elif (m == 3):
+                knowledge = {}
 
             m = menu()
 
