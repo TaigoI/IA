@@ -195,6 +195,30 @@ def bwdInference(rules, knowledge, nodes, target, visited, unknown):
 # ------------------------------------ MAIN -----------------------------------------
 
 
+def lerSimOuNao() -> bool:
+    print("\n")
+    print("    [0] Não")
+    print("    [1] Sim")
+
+    a: str = input("\nAção: ")
+    while ((not a.isdigit()) or (a.isdigit() and int(a) not in (0, 1))):
+        a = input("\nAção inválida, escolha entre \"0\" e \"1\"")
+    print("\n")
+    return int(a) == 1
+
+
+def lerVerdadeiroOuFalso() -> bool:
+    print("\n")
+    print("    [0] Falso (False)")
+    print("    [1] Verdadeiro (True)")
+
+    a: str = input("\nAção: ")
+    while ((not a.isdigit()) or (a.isdigit() and int(a) not in (0, 1))):
+        a = input("\nAção inválida, escolha entre \"0\" e \"1\"")
+    print("\n")
+    return int(a) == 1
+
+
 def addMenu():
     print("\n\n---------------------------- Add Knowledge|Rule -----------------------------")
     print("Knowledge ex.: \"Cancer\" ou \"!Cancer\"")
