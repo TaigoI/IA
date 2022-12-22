@@ -1,8 +1,14 @@
 import argparse
+from os.path import dirname, abspath, join as joinPath
 from dataclasses import dataclass
 from copy import deepcopy as copy
 
 # ------------------------------------ UTIL -----------------------------------------
+
+
+def loadInput(path):
+    with open(path, "r", encoding="utf-8") as src:
+        return src.read()
 
 
 def printDict(dictionary: dict, level=0, tabSize=4):
@@ -25,11 +31,6 @@ def stringFromRule(rule):
 
 def stringFromKnowledge(variable, result):
     return "knowledge:\n    "+str(variable)+" : "+str(result)+"\n"
-
-
-def loadInput(path):
-    with open(path, "r", encoding="utf-8") as src:
-        return src.read()
 
 
 def parseInput(src):
@@ -261,8 +262,9 @@ def showMemory(rules, knowledge, nodes):
     print("\n".join(map(stringFromRule, rules)))
     print("\n".join([stringFromKnowledge(k, v)
                      for k, v in knowledge.items()]))
-    print(
-        f"Nodes: ({','.join(nodes)})")
+
+    sNodes = '\n    '.join(sorted(list(nodes)))
+    print(f"Nodes: (\n    {sNodes}\n)")
 
 
 def main(input):
@@ -335,7 +337,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if (not args.input):
-        print("\nQuestão 1\n(mesmo motor interativo, com forward e backward chaining, que Questão 2)\n")
+        print("\nQuestão 2\n(mesmo motor interativo, com forward e backward chaining, que Questão 1)\n")
         print("\nInstruções de formatação\n")
         print("1 - Um item é verdadeiro se não possui \"!\" no início de seu nome.\n    Ex.: \"Covid19\" equivale a \"Covid19 = True\"\n")
         print("2 - Um item não é verdadeiro se possui \"!\" no início de seu nome.\n    Ex.: \"!Covid19\" equivale a \"Covid19 = False\"\n")
@@ -347,7 +349,7 @@ if __name__ == '__main__':
         if (prompt != ""):
             args.input = prompt
         else:
-            args.input = "questao1.data"
-            print(f'No path provided, using default ./{args.input}\n')
+            args.input = joinPath(dirname(abspath(__file__)), "questao2.data")
+            print(f'No path provided, using default {args.input}\n')
 
     main(input=args.input)
